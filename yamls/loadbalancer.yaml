@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpd-service-lb
+spec:
+  type: LoadBalancer  # Expose the service as a LoadBalancer
+  selector:
+    app: lbl-httpd  # Select pods with the "app: nginx" label
+  ports:
+    - protocol: TCP
+      port: 8080  # Port to expose on the service
+      targetPort: 80  # Port on the pods to forward traffic to
+ 
